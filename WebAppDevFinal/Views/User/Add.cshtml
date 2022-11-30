@@ -1,0 +1,40 @@
+﻿@model Users
+
+@{
+    ViewData["Title"] = "CreateUser";
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h2 class="p-2">Create an Account</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" type="text" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="UserID" />
+
+    <button type="submit" class="btn btn-dark mr-2">Create User</button>
+</form>
