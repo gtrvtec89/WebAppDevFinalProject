@@ -6,11 +6,11 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace WebAppDevFinal.Models
+
+namespace WebAppDevFinal.Data
 {
     public class Users
     {
-        // EF will instruct the database to automatically generate this value
         public int Id { get; set; }
 
         public string FirstName { get; set; }  
@@ -20,6 +20,5 @@ namespace WebAppDevFinal.Models
         public string Email { get; set; }
 
         public string Password { get; set; }
-
     }
 }

@@ -1,30 +1,30 @@
-﻿@model List<Guitars>
+﻿@Model Guitars
 
 @{
     ViewData["Title"] = "Guitars";
 }
-    <h2 class="p-2">Guitars</h2>
-    <table class="table table-striped mt-2">
-        <thead>
+<h2 class="p-2">Guitars</h2>
+<table class="table table-striped mt-2">
+    <thead>
+    <tr>
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var guitar in Model)
+    {
         <tr>
-            <th>Brand</th>
-            <th>Type</th>
-            <th>Model</th>
-            <th>Cost</th>
-            <th>Quantity</th>
+            <td>@guitar.Brand</td>
+            <td>@guitar.Type</td>
+            <td>@guitar.Model</td>
+            <td>@guitar.Cost</td>
+            <td>@guitar.Quantity</td>
         </tr>
-        </thead>
-        <tbody>
-            @foreach (Guitars guitar in Model)
-            {
-                <tr>
-                    <td>@guitar.Brand</td>
-                    <td>@guitar.Type</td>
-                    <td>@guitar.Model</td>
-                    <td>@guitar.Cost</td>
-                    <td>@guitar.Quantity</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    }
+    </tbody>
+</table>
 <hr />

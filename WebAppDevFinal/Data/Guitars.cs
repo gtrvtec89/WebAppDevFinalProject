@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace WebAppDevFinal.Models
+
+namespace WebAppDevFinal.Data
 {
     public class Guitars
     {
-        // EF will instruct the database to automatically generate this value
         public int Id { get; set; }
 
         public string Brand { get; set; }
