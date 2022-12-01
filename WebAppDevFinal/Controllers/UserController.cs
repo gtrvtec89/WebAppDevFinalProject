@@ -1,19 +1,26 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebAppDevFinal.Data;
+using WebAppDevFinal.Models;
 
 namespace WebAppDevFinal.Controllers
 {
     public class UserController : Controller
     {
-     
-            private readonly ApplicationDbContext _context;
 
-            public UserController(ApplicationDbContext context)
-            {
-                _context = context;
-            }
+        //private readonly ApplicationDbContext _context;
+        private UserContext _user_context;
+
+        //public UserController(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
         
+        public UserController(UserContext userContext)
+        {
+            _user_context = userContext;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -25,18 +32,18 @@ namespace WebAppDevFinal.Controllers
         }
         
         [HttpPost]
-        public IActionResult Add(Users users)
+        public IActionResult Add(User users)
         {
             // server-side check for remote validation for duplicate date
-            Users check = _context.Users.FirstOrDefault(t => t.Email == users.Email);
+            User check = _user_context.Users.FirstOrDefault(t => t.Email == users.Email);
             if (check != null) { 
                 ModelState.AddModelError("Email",
                     $"The User {users.Email} is already in the database.");
             }
 
             if (ModelState.IsValid) {
-                _context.Users.Add(users);
-                _context.SaveChanges();
+                _user_context.Users.Add(users);
+                _user_context.SaveChanges();
 
                 return View("~/Views/Home/index.cshtml");
             } 
