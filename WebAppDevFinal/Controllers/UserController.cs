@@ -1,21 +1,18 @@
-﻿using System.Linq;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebAppDevFinal.Data;
+using WebAppDevFinal.Migrations.User;
 using WebAppDevFinal.Models;
 
 namespace WebAppDevFinal.Controllers
 {
     public class UserController : Controller
     {
-
-        //private readonly ApplicationDbContext _context;
         private UserContext _user_context;
 
-        //public UserController(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-        
         public UserController(UserContext userContext)
         {
             _user_context = userContext;
@@ -45,18 +42,42 @@ namespace WebAppDevFinal.Controllers
                 _user_context.Users.Add(users);
                 _user_context.SaveChanges();
 
-                return View("~/Views/Home/index.cshtml");
+                return RedirectToAction("Index", "Home");
+                //return View("Index");
             } 
             else {
                 // model-level validation message
                 ModelState.AddModelError("", "Please correct all errors.");
-                return View("Index");
+                return View("Add");
             }
         }
-
+        [HttpGet]
         public IActionResult Login()
+        {
+           return View();
+        }
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+
+            var usercredentials = _user_context.Users.FirstOrDefault(x => x.Email == user.Email && x.Password == user.Password);
+
+            //Debug.WriteLine(user.Email);
+            //Debug.WriteLine(user.Password);
+
+            //return View("Login");
+            if (usercredentials == null)
+            {
+                return View("FailedLogin");
+            }
+            return View("LoginSuccess");
+            // if(_user_context.Users.)\
+        }
+	    [HttpGet]
+        public IActionResult LoginSuccess()
         {
             return View();
         }
+
     }
 }
