@@ -46,5 +46,10 @@ namespace WebAppDevFinal.Controllers
                 return View("Index");
             }
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
     }
 }
