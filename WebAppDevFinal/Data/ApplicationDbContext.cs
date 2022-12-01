@@ -12,5 +12,8 @@ namespace WebAppDevFinal.Data
             : base(options)
         {
         }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Guitars> Guitars { get; set; }
+        public DbSet<Orders> Orders { get; set; }
     }
 }

@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace WebAppDevFinal.Models
+
+namespace WebAppDevFinal.Data
 {
     public class Orders
     {
-        // EF will instruct the database to automatically generate this value
         public int Id { get; set; }
 
         public int UserID { get; set; } 
@@ -18,6 +21,6 @@ namespace WebAppDevFinal.Models
 
         public DateTime DatePlaced { get; set; }
 
-        public int ProductID { get; set; }  // forign key
+        public int ProductID { get; set; }  
     }
 }
