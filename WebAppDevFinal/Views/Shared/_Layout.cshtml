@@ -33,6 +33,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Guitars" asp-action="Index">@TempData["Username"]</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

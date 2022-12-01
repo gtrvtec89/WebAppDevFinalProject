@@ -10,8 +10,8 @@ using WebAppDevFinal.Data;
 namespace WebAppDevFinal.Migrations.GuitarOrder
 {
     [DbContext(typeof(GuitarOrderContext))]
-    [Migration("20221201014429_GuitarOrder")]
-    partial class GuitarOrder
+    [Migration("20221201193523_Guitar")]
+    partial class Guitar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,28 @@ namespace WebAppDevFinal.Migrations.GuitarOrder
                     b.HasKey("Id");
 
                     b.ToTable("Guitars");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brand = "Grog Guitars",
+                            Cost = 3000.00m,
+                            List = 5000.00m,
+                            Model = "S-type",
+                            Quantity = 3,
+                            Type = "Ibanez"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Brand = "Ibanez Guitars",
+                            Cost = 2500.00m,
+                            List = 4000.00m,
+                            Model = "670qm",
+                            Quantity = 6,
+                            Type = "S-type"
+                        });
                 });
 
             modelBuilder.Entity("WebAppDevFinal.Models.Order", b =>

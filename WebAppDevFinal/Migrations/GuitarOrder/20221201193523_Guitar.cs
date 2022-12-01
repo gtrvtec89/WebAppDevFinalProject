@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppDevFinal.Migrations.GuitarOrder
 {
-    public partial class GuitarOrder : Migration
+    public partial class Guitar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,6 +41,16 @@ namespace WebAppDevFinal.Migrations.GuitarOrder
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Guitars",
+                columns: new[] { "Id", "Brand", "Cost", "List", "Model", "Quantity", "Type" },
+                values: new object[] { 1, "Grog Guitars", 3000.00m, 5000.00m, "S-type", 3, "Ibanez" });
+
+            migrationBuilder.InsertData(
+                table: "Guitars",
+                columns: new[] { "Id", "Brand", "Cost", "List", "Model", "Quantity", "Type" },
+                values: new object[] { 2, "Ibanez Guitars", 2500.00m, 4000.00m, "670qm", 6, "S-type" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

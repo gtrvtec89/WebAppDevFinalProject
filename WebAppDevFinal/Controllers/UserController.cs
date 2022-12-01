@@ -62,11 +62,16 @@ namespace WebAppDevFinal.Controllers
 
             var usercredentials = _user_context.Users.FirstOrDefault(x => x.Email == user.Email && x.Password == user.Password);
 
-            if (usercredentials == null)
+            if (usercredentials != null)
             {
-                return View("FailedLogin");
+                TempData["Username"] = usercredentials.Email;
+                return View("LoginSuccess");
             }
-            return View("LoginSuccess");
+            else
+            {
+                ViewBag.msg = "Invalid email or password";
+            }
+            return View("Login");
         }
 	    [HttpGet]
         public IActionResult LoginSuccess()

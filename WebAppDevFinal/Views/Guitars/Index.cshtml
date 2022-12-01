@@ -1,4 +1,4 @@
-﻿@Model Guitars
+﻿@model GuitarOrderViewModel
 
 @{
     ViewData["Title"] = "Guitars";
@@ -16,13 +16,13 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var guitar in Model)
+    @foreach (var guitar in Model.Guitars)
     {
         <tr>
             <td>@guitar.Brand</td>
             <td>@guitar.Type</td>
             <td>@guitar.Model</td>
-            <td>@guitar.Cost</td>
+            <td>@guitar.List</td>
             <td>@guitar.Quantity</td>
         </tr>
     }
