@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebAppDevFinal.Data;
-using WebAppDevFinal.Migrations.User;
+//using WebAppDevFinal.Migrations.User;
 using WebAppDevFinal.Models;
 
 namespace WebAppDevFinal.Controllers
@@ -62,16 +62,11 @@ namespace WebAppDevFinal.Controllers
 
             var usercredentials = _user_context.Users.FirstOrDefault(x => x.Email == user.Email && x.Password == user.Password);
 
-            //Debug.WriteLine(user.Email);
-            //Debug.WriteLine(user.Password);
-
-            //return View("Login");
             if (usercredentials == null)
             {
                 return View("FailedLogin");
             }
             return View("LoginSuccess");
-            // if(_user_context.Users.)\
         }
 	    [HttpGet]
         public IActionResult LoginSuccess()

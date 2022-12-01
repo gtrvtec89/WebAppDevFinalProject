@@ -9,7 +9,7 @@ using WebAppDevFinal.Data;
 namespace WebAppDevFinal.Migrations.User
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20221201013934_Users")]
+    [Migration("20221201032557_Users")]
     partial class Users
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
