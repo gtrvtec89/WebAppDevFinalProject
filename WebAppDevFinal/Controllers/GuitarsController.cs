@@ -22,7 +22,6 @@ namespace WebAppDevFinal.Controllers
         public ViewResult Index()
         {
             var guitars = data.Guitars.ToList();
-            ViewBag.guitars = guitars;
             return View(guitars);
         }
     }
