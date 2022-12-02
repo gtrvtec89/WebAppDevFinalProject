@@ -24,6 +24,7 @@
             <td>@guitar.Model</td>
             <td>@guitar.List</td>
             <td>@guitar.Quantity</td>
+            <td>@Html.ActionLink("Buy Now!","Add","Orders",new{guitar.Id,guitar.Quantity})</td>
         </tr>
     }
     </tbody>
