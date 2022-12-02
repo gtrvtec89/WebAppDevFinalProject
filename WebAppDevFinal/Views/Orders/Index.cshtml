@@ -1,0 +1,30 @@
+﻿@model GuitarOrderViewModel
+
+@{
+    ViewData["Title"] = "Orders";
+}
+<h2 class="p-2">Order List</h2>
+<table class="table table-striped mt-2">
+    <thead>
+    <tr>
+        <th>User ID</th>
+        <th>Number</th>
+        <th>Date Placed</th>
+        <th>Product ID</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td>@order.UserID</td>
+            <td>@order.Number</td>
+            <td>@order.DatePlaced</td>
+            <td>@order.ProductID</td>
+            <td>@order.Quantity</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<hr />
