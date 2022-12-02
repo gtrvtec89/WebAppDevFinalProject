@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WebAppDevFinal.Models;
 
 namespace WebAppDevFinal.Data
 {
@@ -12,8 +13,8 @@ namespace WebAppDevFinal.Data
             : base(options)
         {
         }
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Guitars> Guitars { get; set; }
-        public DbSet<Orders> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Guitar> Guitars { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

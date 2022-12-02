@@ -22,7 +22,11 @@ namespace WebAppDevFinal.Controllers
         public ViewResult Index()
         {
             var guitars = data.Guitars.ToList();
-            return View(guitars);
+            var model = new GuitarOrderViewModel
+            {
+                Guitars = guitars
+            };
+            return View(model);
         }
     }
 }

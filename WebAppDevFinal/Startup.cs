@@ -32,12 +32,24 @@ namespace WebAppDevFinal
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
-        }
+            
+			services.AddDbContext<UserContext>(options =>
+				options.UseSqlServer(
+					Configuration.GetConnectionString("DefaultConnection")));
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+			services.AddDbContext<GuitarOrderContext>(options =>
+				options.UseSqlServer(
+					Configuration.GetConnectionString("DefaultConnection")));
+
+			services.AddControllersWithViews();
+			services.AddRazorPages();
+		}
+        
+            
+        
+
+			// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
